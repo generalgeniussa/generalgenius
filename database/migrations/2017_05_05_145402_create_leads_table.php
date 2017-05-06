@@ -19,6 +19,7 @@ class CreateLeadsTable extends Migration
             $table->string('contactName');
             $table->string('contactNumber');
             $table->string('emailAddress');
+            $table->text('description');
             $table->integer('capturedBy')->unsigned();
             $table->foreign('capturedBy')->references('id')->on('users');
             $table->string('status')->default('Pending');

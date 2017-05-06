@@ -2,7 +2,7 @@
 @section('content')
 <div class="page-header">
     <h1>
-        Update Lad
+        Update Lead
     </h1>
 </div>
 <div class="row">

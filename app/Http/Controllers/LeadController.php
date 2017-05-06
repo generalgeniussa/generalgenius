@@ -34,6 +34,7 @@ class LeadController extends Controller
             'contactName' => 'required',
             'contactNumber' => 'required',
             'emailAddress' => 'required',
+            'description' => 'required',
         ]);
 
         $lead = new Lead($request->all());
@@ -56,6 +57,7 @@ class LeadController extends Controller
             'contactName' => 'required',
             'contactNumber' => 'required',
             'emailAddress' => 'required',
+            'description' => 'required',
         ]);
 
         $lead = Lead::find($leadId);
@@ -70,7 +72,7 @@ class LeadController extends Controller
         $lead = Lead::find($leadId);
         $meeting = new Meeting([
             'title' => $lead->companyName,
-            'description' => 'From lead: ' . $lead->companyName,
+            'description' => 'From lead: ' . $lead->companyName . ': ' . $lead->description,
             'attendingGenius' => Auth::user()->id,
             'meetingAddress' => '',
             'clientName' => $lead->contactName,

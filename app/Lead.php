@@ -11,7 +11,8 @@ class Lead extends Model
         'contactName',
         'contactNumber',
         'emailAddress',
-        'status'
+        'status',
+        'description'
     ];
 
     public function capturer()

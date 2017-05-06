@@ -17,7 +17,6 @@
     <div class="form-group">
         <label for="contactName">Contact Name</label>
         <input type="text" name="contactName" value="{{ old('contactName', $lead->contactName) }}" class="form-control"/>
-
     </div>
 
     <div class="form-group">
@@ -28,6 +27,11 @@
     <div class="form-group">
         <label for="emailAddress">Contact Email</label>
         <input type="text" class="form-control" name="emailAddress" value="{{ old('emailAddress', $lead->emailAddress) }}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" name="description">{{ old('emailAddress', $lead->emailAddress) }}</textarea>
     </div>
 
     <div class="form-group">
