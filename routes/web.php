@@ -34,6 +34,7 @@ Route::group(['prefix' => 'meetings'], function() {
 
 Route::group(['prefix' => 'leads'], function() {
     Route::get('/', 'LeadController@index')->name('leads:list');
+    Route::post('/', 'LeadController@index')->name('leads:list');
     Route::get('/create', 'LeadController@create')->name('leads:create');
     Route::post('/create', 'LeadController@store')->name('leads:store');
     Route::get('/{meetingId}', 'LeadController@edit')->name('leads:edit');

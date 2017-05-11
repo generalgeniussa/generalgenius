@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lead;
 use App\Meeting;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 
 class LeadController extends Controller
@@ -14,10 +15,23 @@ class LeadController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $leads = Lead::all();
-        return view('leads.list', compact('leads'));
+        $filters = [];
+        $filters['status'] = $request->status;
+        $filters = collect($filters);
+
+        $leadsQuery = Lead::query();
+
+        $filters->each(function($filter, $key) use ($leadsQuery) {
+            if ($filter !== null && $filter !== '') {
+                $leadsQuery->where($key, '=', $filter);
+            }
+        });
+
+        $leads = $leadsQuery->get();
+
+        return view('leads.list', compact('leads', 'filters'));
     }
 
     public function create()
