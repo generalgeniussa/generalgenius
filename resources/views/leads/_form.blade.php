@@ -31,7 +31,7 @@
 
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" name="description">{{ old('emailAddress', $lead->emailAddress) }}</textarea>
+        <textarea class="form-control" name="description">{{ old('description', $lead->description) }}</textarea>
     </div>
 
     <div class="form-group">
