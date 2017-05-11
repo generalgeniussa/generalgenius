@@ -57,6 +57,7 @@
                 @endforelse
                 </tbody>
             </table>
+            {{ $meetings->links() }}
         </div>
     </div>
 @endsection('content')

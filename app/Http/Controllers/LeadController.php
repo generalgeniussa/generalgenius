@@ -29,7 +29,7 @@ class LeadController extends Controller
             }
         });
 
-        $leads = $leadsQuery->get();
+        $leads = $leadsQuery->paginate(15);
 
         return view('leads.list', compact('leads', 'filters'));
     }
